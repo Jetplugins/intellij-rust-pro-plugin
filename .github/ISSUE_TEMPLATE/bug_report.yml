@@ -1,0 +1,108 @@
+name: Bug report
+description: Report reproducible unexpected behavior in Rust Pro
+title: "[Bug]: "
+labels:
+  - bug
+  - needs-triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Rust Pro. Search existing issues before submitting a new report.
+        Please redact confidential source code and project names, customer data, credentials, and other sensitive information.
+
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Rust Pro version
+      placeholder: "For example: 2026.1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: ide
+    attributes:
+      label: IDE and build
+      description: Include the JetBrains IDE name and full build number.
+      placeholder: "For example: IntelliJ IDEA 2026.1, IU-261.12345.67"
+    validations:
+      required: true
+
+  - type: input
+    id: operating-system
+    attributes:
+      label: Operating system
+      placeholder: "For example: macOS 15.6, Windows 11, or Ubuntu 24.04"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: project-type
+    attributes:
+      label: Project type
+      options:
+        - Cargo package
+        - Cargo workspace
+        - Standalone Rust file
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: toolchain
+    attributes:
+      label: Rust toolchain and related tools
+      description: Include rustc --version, cargo --version and rust-analyzer --version. Include LSP4IJ and CodeLLDB versions when relevant. Mention Cargo features/target and local, WSL2, SSH or Docker execution. Omit confidential paths.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Problem
+      description: Describe what went wrong and how it affects your work.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open ...
+        2. Select ...
+        3. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: rust-example
+    attributes:
+      label: Minimal Rust example
+      description: Paste the smallest redacted Rust code that reproduces the problem, if applicable.
+      render: rust
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include redacted screenshots, stack traces, or relevant IDE log excerpts when useful.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: I searched existing issues for this problem.
+          required: true
+        - label: I removed confidential and personally identifiable information from this report.
+          required: true
+        - label: This is not a security vulnerability.
+          required: true
